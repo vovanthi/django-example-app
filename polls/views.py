@@ -1,15 +1,10 @@
-from django.shortcuts import render, HttpResponse
+from rest_framework.decorators import api_view, permission_classes, renderer_classes
+from rest_framework.response import Response
+from rest_framework_swagger.renderers import OpenAPIRenderer, SwaggerUIRenderer
 
 # Create your views here.
+@api_view(['GET', 'POST'])
+@renderer_classes([OpenAPIRenderer, SwaggerUIRenderer])
 def index(request):
-    return HttpResponse("hello world No paramater in request")
-
-def detail(request, question_id):
-    return HttpResponse("You're looking at question %s." % question_id)
-
-def results(request, question_id):
-    response = "You're looking at the results of question %s."
-    return HttpResponse(response % question_id)
-
-def vote(request, question_id):
-    return HttpResponse("You're voting on question %s." % question_id)
+    ''' サンプルコード '''
+    return Response({"message": "hello world No paramater in request"})
