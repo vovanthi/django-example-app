@@ -3,4 +3,4 @@ from .views import MemberViewSet, MemberListViewSet
 
 router = routers.DefaultRouter()
 router.register(r'members', MemberViewSet, base_name='members')
-router.register(r'memberslist', MemberListViewSet, base_name='memberslist')
+router.register(r'memberslist/$', MemberListViewSet.as_view(), base_name='memberslist')

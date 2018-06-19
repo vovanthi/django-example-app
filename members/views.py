@@ -16,6 +16,8 @@ class MemberViewSet(viewsets.ModelViewSet):
 
 class MemberListViewSet(generics.ListAPIView):
     serializer_class = MembersSerializer
+    model = serializer_class.Meta.model
     def get_queryset(self):
-        query_member_id = self.kwargs['member_id']
-        return Members.objects.filter(member_id=query_member_id)
+        member_id = self.kwargs['member_id']
+        queryset = self.model.objects.filter(member_id=member_id)
+        return queryset
