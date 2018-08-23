@@ -3,3 +3,11 @@
 
 # python cache
 __pycache__
+
+# python env
+.env
+env
+./env
+.venv
+venv
+./venv
